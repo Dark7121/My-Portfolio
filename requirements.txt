@@ -9,8 +9,7 @@ python-dotenv==0.21.1
 sqlparse==0.4.2
 tzdata==2021.5
 gunicorn==21.2.0
-pip==23.2.1
-Python==3.11.6
+pip==23.3.1
 python-dateutil==2.8.2
 python-dotenv==0.21.1
 python-decouple==3.8.0
