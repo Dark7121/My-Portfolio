@@ -1,6 +1,6 @@
 echo = "BUILD START"
 
-wget https://www.sqlite.org/2023/sqlite-autoconf-3360000.tar.gz
+curl -O https://www.sqlite.org/2023/sqlite-autoconf-3360000.tar.gz
 tar xvfz sqlite-autoconf-3360000.tar.gz
 cd sqlite-autoconf-3360000
 ./configure
