@@ -8,7 +8,9 @@ make
 make install
 cd..
 
-yum install -y sqlite-devel
+yum install sqlite-devel
+./configure
+make && make install
 
 pip install --no-cache-dir -r requirements.txt
 python3.9 manage.py collectstatic --noinput --clear
