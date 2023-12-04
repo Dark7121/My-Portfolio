@@ -6,7 +6,7 @@ cd sqlite-autoconf-3360000
 ./configure
 make
 make install
-cd..
+cd ..
 
 yum install sqlite-devel
 ./configure
