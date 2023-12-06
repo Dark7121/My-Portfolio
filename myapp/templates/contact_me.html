@@ -209,10 +209,10 @@
         </div>
     </header>
     <div class="middle">
-        <div class="feedback-box">
+        <div id="feedbackForm" class="feedback-box">
             <h1>Contact Me</h1>
             <h3>Leave your message here, and I will contact you at your convenience!!</h3><br>
-            <form id="Feedback" action="https://formsubmit.co/87433e454ac07d232e8cd3e4fcae31bf" method="post">
+            <form class="info" action="https://formspree.io/f/xzblnzdz" method="post">
                 <input type="hidden" name="_captcha" value="false">
                 <div class="input-group">
                   <label for="fullname">Your Full Name:</label>
@@ -281,13 +281,19 @@
     </div>
 
     <script>
-        function downloadResume() {
-            var fileId = "1trHpL0WtJz6fMoFYm8yH2Yx3dhNZ8T2T";
-            var downloadLink = "https://drive.google.com/uc?export=download&id=" + fileId;
-            var link = document.createElement("a");
-            link.href = downloadLink;
-            link.click();
-        }
-    </script>   
+        $(document).ready(() => { 
+            $('.info').on('submit', () => { 
+                return false; 
+            }); 
+        }); 
+        $('.info').keypress((e) => { 
+            if (e.which === 13) { 
+                $('.info').submit(); 
+                console.log('form submitted'); 
+            } 
+        })
+    </script>
+    
+
 </body>
 </html>
