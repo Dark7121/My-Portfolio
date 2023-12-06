@@ -8,218 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhijit's Portfolio</title>
     <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}/static/helloworld.png" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header {
-            background-color: rgba(35, 45, 163, 0.15);
-            color: #7fffd4;
-            top: 0;
-            left: 0;
-            height: 8vh;
-            width: 100%;
-            position:fixed;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2vh;
-        }
-        a:visited {
-            color: lightgreen;
-        }
-        a:active {
-            text-decoration: none;
-        }
-        a:link {
-            color: #7fffd4;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #008080;
-        }
-        .header-left {
-            display: flex;
-            align-items: center;
-            margin: 2vh;
-            margin-top: 3vh;
-        }
-        .header-left:hover {
-            zoom: 120%;
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            margin: 3vh;
-        }
-        .header-right h2 {
-            margin-left: 2.5vh;
-        }
-        body {
-            color: #F5F7F8;
-            position: absolute;
-            padding-top: 9.5vh;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            background-color: #232D3F;
-            margin: 0;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 210vh;
-            height: 120vh; 
-            background: url("{{ STATIC_URL }}/static/x.jpg") top center / cover no-repeat;
-            z-index: -1;
-        }
-        .button-position {
-            display: flex;
-            margin: 10px;
-        }
-        .btn {
-            margin: 0.5vh;
-            padding: 2vh 2.5vh;
-            border-radius: 6vh;
-            border: none;
-            background-color: #00BDFE;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s, text-shadow 0.5s;
-            font-size: 2.5vh;
-            font-weight: bold;
-        }
-        .btn-with-icon {
-            display: flex;
-            align-items: center;
-        }
-        .btn-with-icon .btn-img {
-            margin-left: 0.5vh;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn:hover {
-            background-color: #0088aa;
-            box-shadow: 0 0 0.5vh rgba(76, 175, 80, 0.6);
-            text-shadow: 0 0 0.5vh #00ff26;
-        }
-        .center {
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            height: 75vh;
-        }
-        .section {
-            padding: 2.5vh;
-            margin-top: 37vh;
-            justify-content: center;
-            align-items: center;
-        }
-        .centered-text{
-            text-align: center;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items:center;
-            height: 51vh;
-            width: 100%;
-        }
-        .box {
-            margin: 3.5vh;
-            border: 0.2vh solid #ccc;
-            border-radius: 4vh;
-            background-color: black;
-            border-color: white;
-            padding: 1vh;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            height:45vh;
-            width: 60vh;
-            line-height: 1.4;
-        }
-        .about-me {
-            position: absolute;
-            top: 220vh;
-            background-color: black;
-            height: 75vh;
-            width: 210vh;
-            padding: 4vh;
-            justify-content: center;
-            text-align: center;
-            font-size: 2.6vh;
-          }
-          .mid-content {
-            justify-content: center;
-            text-align: center;
-            width: 100%;
-            margin: 2vh;
-        }
-        .profile-box {
-            text-align: center;
-            justify-content: center;
-        }
-        .python-color {
-            color: #306998;
-          }
-      
-        .web-color {
-            background: linear-gradient(to right, #306998 55%, #FFD44B 45%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-          }
-      
-        .developer-color {
-            color: #FFD44B;
-          }
-        .info-position {
-            display: flex;
-            margin: 1vh;
-            justify-content: center;
-            text-align: center;
-        }
-        .bottom-down {
-            margin-top: 5vh;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            body::before {
-                height: 170vh;
-            }
-            .center {
-                margin-top: 30vh;
-            }
-            .section {
-                margin-top: 80vh;
-                align-items: center;
-                margin-left: -30px;
-            }
-            .container {
-                margin-top: 25vh;
-                display: flex;
-            }
-            .about-me {
-                height: 100vh;
-                margin-top: 105vh;
-            }
-            .bottom-down {
-                margin-top: 1vh;
-            }
-        }
-        @media (max-width: 1024px) {
-            .about-me {
-                height: 80vh;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage.css' %}">
+    <script src="{{ STATIC_URL }}/static/homepage.js"></script>
 </head>
 <body>
     <header>
@@ -228,7 +18,7 @@
         </div>
         <div class="header-right">
             <h2><a href="project">My Projects</a></h2>
-            <h2><a href="contact-me" target="_blank">Contact Me</a></h2>
+            <h2><a href="contact-me">Contact Me</a></h2>
             <h2><a href="#about-me">About Me</a></h2>
         </div>
     </header>
@@ -241,8 +31,8 @@
         <h1>Welcome!</h1>
         <h3><strong>I am Abhijit Das and you are currently visiting my portfolio!!</strong></h3>
         <div class="button-position">
-            <button class="btn" id="myProject">My Projects</button>
-            <button class="btn" id="myContact">Contact Me</button>
+            <a href="project" target="_blank"><button class="btn">My Projects</button></a>
+            <a href="contact-me" target="_blank"><button class="btn">Contact Me</button></a>
             <button class="btn btn-with-icon" onclick="downloadResume()">Download Resume
                 <div class="btn-img">
                     <img src="{{ STATIC_URL }}/static/cloud.png" style="height:25px; width:25px;">
@@ -314,38 +104,18 @@
             </div>
             <div>
                 <img src="{{ STATIC_URL }}/static/GitHub-Mark.png" alt="GitHub" style="border-radius: 70%; max-height: 30px; max-width: 30px;">
-                <a href="https://github.com/Dark7121?tab=repositories" class="link-inbox">GitHub</a>
+                <a href="https://github.com/Dark7121?tab=repositories" target="_blank" class="link-inbox">GitHub</a>
                 <img src="{{ STATIC_URL }}/static/li.png" alt="LinkedIn" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
-                <a href="https://www.linkedin.com/in/abhijit-das-530870194/" class="link-inbox">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/abhijit-das-530870194/" target="_blank" class="link-inbox">LinkedIn</a>
                 <img src="{{ STATIC_URL }}/static/l.png" alt="LeetCode" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
-                <a href="https://leetcode.com/abhijitdas7121/" class="link-inbox">LeetCode</a>
+                <a href="https://leetcode.com/abhijitdas7121/" target="_blank" class="link-inbox">LeetCode</a>
                 <img src="{{ STATIC_URL }}/static/ha.png" alt="HackerRank" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
-                <a href="https://www.hackerrank.com/profile/abhijitdas7121" class="link-inbox">HackerRank</a>
+                <a href="https://www.hackerrank.com/profile/abhijitdas7121" target="_blank" class="link-inbox">HackerRank</a>
                 <footer class="bottom-down">
                     <p>Copyright &copy; 2023 Abhijit Das. All Rights Reserved.</p>
                 </footer> 
             </div>
         </div>
     </div>
-
-    <script>
-        function downloadResume() {
-            var fileId = "1trHpL0WtJz6fMoFYm8yH2Yx3dhNZ8T2T";
-            var downloadLink = "https://drive.google.com/uc?export=download&id=" + fileId;
-            var link = document.createElement("a");
-            link.href = downloadLink;
-            link.click();
-        }
-    </script>
-    <script>
-        document.getElementById("myContact").onclick = function () {
-            location.href = "contact-me";
-        };
-    </script>
-    <script>
-        document.getElementById("myProject").onclick = function () {
-            location.href = "project";
-        };
-    </script>
 </body>
 </html>
