@@ -14,18 +14,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-        .loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        } 
         header {
             background-color: rgba(35, 45, 163, 0.15);
             color: #7fffd4;
@@ -201,18 +189,46 @@
             margin-top: 5vh;
             text-align: center;
         }
+
+        @media (max-width: 768px) {
+            body::before {
+                height: 170vh;
+            }
+            .center {
+                margin-top: 30vh;
+            }
+            .section {
+                margin-top: 80vh;
+                align-items: center;
+                margin-left: -30px;
+            }
+            .container {
+                margin-top: 25vh;
+                display: flex;
+            }
+            .about-me {
+                height: 100vh;
+                margin-top: 105vh;
+            }
+            .bottom-down {
+                margin-top: 1vh;
+            }
+        }
+        @media (max-width: 1024px) {
+            .about-me {
+                height: 80vh;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="loader-container">
-        <img src="{{ STATIC_URL }}/static/loader.mp4" alt="Loader">
-    </div>
     <header>
         <div class="header-left">
             <a href="/"><img src="{{ STATIC_URL }}/static/helloworld.png" style=" border-radius: 20%; height:40px; width:80px;"></a>
         </div>
         <div class="header-right">
-            <h2><a href="#about-me">My Projects</a></h2>
+            <h2><a href="project">My Projects</a></h2>
+            <h2><a href="contact-me" target="_blank">Contact Me</a></h2>
             <h2><a href="#about-me">About Me</a></h2>
         </div>
     </header>
@@ -225,8 +241,8 @@
         <h1>Welcome!</h1>
         <h3><strong>I am Abhijit Das and you are currently visiting my portfolio!!</strong></h3>
         <div class="button-position">
-            <button class="btn">My Projects</button>
-            <button class="btn">Contact Me</button>
+            <button class="btn" id="myProject">My Projects</button>
+            <button class="btn" id="myContact">Contact Me</button>
             <button class="btn btn-with-icon" onclick="downloadResume()">Download Resume
                 <div class="btn-img">
                     <img src="{{ STATIC_URL }}/static/cloud.png" style="height:25px; width:25px;">
@@ -315,19 +331,21 @@
     <script>
         function downloadResume() {
             var fileId = "1trHpL0WtJz6fMoFYm8yH2Yx3dhNZ8T2T";
-            var fileName = "Abhijit_Das_Resume"
             var downloadLink = "https://drive.google.com/uc?export=download&id=" + fileId;
             var link = document.createElement("a");
-            link.download = fileName + ".pdf";
             link.href = downloadLink;
             link.click();
         }
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelector(".loader-container").style.display = "none";
-            document.querySelector(".content").style.display = "block";
-        });
+        document.getElementById("myContact").onclick = function () {
+            location.href = "contact-me";
+        };
+    </script>
+    <script>
+        document.getElementById("myProject").onclick = function () {
+            location.href = "project";
+        };
     </script>
 </body>
 </html>

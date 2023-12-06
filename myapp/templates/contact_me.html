@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Django, HTML, CSS, Javascript, Responsive Design">
+    <meta name="author" content="Abhijit Das">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhijit's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}/static/helloworld.png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: rgba(35, 45, 163, 0.15);
+            color: #7fffd4;
+            top: 0;
+            left: 0;
+            height: 8vh;
+            width: 100%;
+            position:fixed;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2vh;
+        }
+        a:visited {
+            color: lightgreen;
+        }
+        a:active {
+            text-decoration: none;
+        }
+        a:link {
+            color: #7fffd4;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #008080;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            margin: 2vh;
+            margin-top: 3vh;
+        }
+        .header-left:hover {
+            zoom: 120%;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            margin: 3vh;
+        }
+        .header-right h2 {
+            margin-left: 2.5vh;
+        }
+        body {
+            color: #F5F7F8;
+            position: absolute;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            background-color: #fff;
+            margin: 0;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            width: 210vh;
+            height: 120vh; 
+            background: url("{{ STATIC_URL }}/static/full-sunny.jpg") top center / cover no-repeat;
+            z-index: -1;
+        }
+        .btn {
+            margin: 0.5vh;
+            padding: 2vh 2.5vh;
+            border-radius: 6vh;
+            border: none;
+            background-color: #00BDFE;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, text-shadow 0.5s;
+            font-size: 2.5vh;
+            font-weight: bold;
+        }
+        .middle {
+            position: relative;
+            margin-top: 50vh;
+            margin-left: 100vh;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .feedback-box {
+            padding: 10vh;
+            border-radius: 1vh;
+            max-width: 200vh;
+            margin: 0 auto;
+        }
+        .input-group {
+            flex-direction: column;
+        }
+        .input-group label {
+            font-weight: bold;
+        }
+        .input-group input {
+            padding: 1.2vh;
+            border-radius: 0.8vh;
+            border: 0.4vh solid #ccc;
+            width: 30vh;
+        }
+        #message {
+            resize: vertical;
+            height: 30vh;
+        }
+        .circle {
+          position: relative;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .thank-you-message p {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          margin: 0;
+          font-size: 22px;
+          color: #7BD9F6;
+          font-style: Arial, sans-serif;
+          font-weight: bold;
+        }        
+        .about-me {
+            position: absolute;
+            top: 120vh;
+            background-color: black;
+            height: 74vh;
+            width: 210vh;
+            padding: 4vh;
+            justify-content: center;
+            text-align: center;
+            font-size: 2.6vh;
+        }
+        .mid-content {
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            margin: 2vh;
+        }
+        .profile-box {
+            text-align: center;
+            justify-content: center;
+        }
+        .info-position {
+            display: flex;
+            margin: 1vh;
+            justify-content: center;
+            text-align: center;
+        }
+        .bottom-down {
+            margin-top: 5vh;
+            text-align: center;
+        }
+
+        @media (max-width: 320px) {
+            body::before {
+                margin-top: 0vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body::before {
+                height: 160vh;
+            }
+            .middle {
+                margin-top: 80vh;;
+            }
+            .about-me {
+                height: 100vh;
+                margin-top: 40vh;
+            }
+            .bottom-down {
+                margin-top: 6vh;
+            }
+        }
+        @media (max-width: 1024px) {
+            .about-me {
+                height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="/"><img src="{{ STATIC_URL }}/static/helloworld.png" style=" border-radius: 20%; height:40px; width:80px;"></a>
+        </div>
+        <div class="header-right">
+            <h2><a href="/">Home</a></h2>
+            <h2><a href="project">My Projects</a></h2>
+            <h2><a href="#about-me">About Me</a></h2>
+        </div>
+    </header>
+    <div class="middle">
+        <div class="feedback-box">
+            <h1>Contact Me</h1>
+            <h3>Leave your message here, and I will contact you at your convenience!!</h3><br>
+            <form id="Feedback" action="https://formsubmit.co/87433e454ac07d232e8cd3e4fcae31bf" method="post">
+                <input type="hidden" name="_captcha" value="false">
+                <div class="input-group">
+                  <label for="fullname">Your Full Name:</label>
+                  <input type="text" id="fullname" name="fullname" placeholder="Full Name" required><br><br>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email Id:</label>
+                    <input type="email" id="email" name="email" placeholder="Email ID" required><br><br>
+                </div>
+                <div class="input-group">
+                    <label for="phonenumber">Phone Number:</label>
+                    <input type="phonenumber" id="phonenumber" name="phonenumber" placeholder="Phone Number(Not Mandetory)"><br><br>
+                </div>
+                <div class="input-group">
+                  <label for="subject">Subject:</label>
+                  <input type="text" id="subject" name="subject" placeholder="Message Subject" required><br><br>
+                </div>
+                <div class="input-group">
+                  <label for="message">Your Message:</label><br>
+                  <textarea id="message" name="message" rows="50" cols="70" placeholder="Your Message" required></textarea><br><br>
+                </div>
+                <button type="submit" class="btn" onclick="btnFunction()">Submit</button>
+            </form>
+        </div>
+        <div class="circle" id="circleContainer" style="display: none;">
+          <div class="thank-you-message" id="thankYouMessage">
+            <p>Thank you for your feedback!<br><span id="countdown">3</span> seconds</p>
+          </div>
+        </div>
+    </div>
+    <div class="about-me" id="about-me">
+        <div class="mid-content">
+            <h1>About Me</h1>
+        </div>
+        <div class="mid-content">
+            <p> Hello, I am Abhijit Das, a highly motivated and detail-oriented Python Developer with a strong foundation in Web Development, Machine Learning,
+                <br> and Deep Learning. I like to create softwares with Python, for the web I mostly use Django. You can check my work at the project section.
+                <br> I am always learning something, like a new technology or new programming language. So let's collaborate and make our innovation ideas into reality together!
+            </p>
+        </div>
+        <div class="profile-box">
+            <img src="{{ STATIC_URL }}/static/me.jpeg" alt="Avatar" style="border-radius: 50%; max-height: 150px; max-width: 150px;">
+            <h3>Abhijit Das</h3>
+            <div class="info-position">
+                <img src="{{ STATIC_URL }}/static/call.jpg" alt="Phone Number" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
+                <p>+91-9007366471</p>
+            </div>
+            <div class="info-position">
+                <img src="{{ STATIC_URL }}/static/gmail.png" alt="Gmail ID" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
+                <p>dasabhijit0712@gmail.com</p>
+            </div>
+            <div>
+                <img src="{{ STATIC_URL }}/static/GitHub-Mark.png" alt="GitHub" style="border-radius: 70%; max-height: 30px; max-width: 30px;">
+                <a href="https://github.com/Dark7121?tab=repositories" class="link-inbox">GitHub</a>
+                <img src="{{ STATIC_URL }}/static/li.png" alt="LinkedIn" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
+                <a href="https://www.linkedin.com/in/abhijit-das-530870194/" class="link-inbox">LinkedIn</a>
+                <img src="{{ STATIC_URL }}/static/l.png" alt="LeetCode" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
+                <a href="https://leetcode.com/abhijitdas7121/" class="link-inbox">LeetCode</a>
+                <img src="{{ STATIC_URL }}/static/ha.png" alt="HackerRank" style="border-radius: 20%; max-height: 30px; max-width: 30px;">
+                <a href="https://www.hackerrank.com/profile/abhijitdas7121" class="link-inbox">HackerRank</a>
+                <footer class="bottom-down">
+                    <p>Copyright &copy; 2023 Abhijit Das. All Rights Reserved.</p>
+                </footer> 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadResume() {
+            var fileId = "1trHpL0WtJz6fMoFYm8yH2Yx3dhNZ8T2T";
+            var downloadLink = "https://drive.google.com/uc?export=download&id=" + fileId;
+            var link = document.createElement("a");
+            link.href = downloadLink;
+            link.click();
+        }
+    </script>   
+</body>
+</html>
