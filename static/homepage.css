@@ -10,7 +10,7 @@ header {
     left: 0;
     height: 8vh;
     width: 100%;
-    position:fixed;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     padding: 0 2vh;
@@ -28,9 +28,11 @@ a:link {
 a:hover {
     color: #008080;
 }
-.header-left {
+.header-left, .header-right {
     display: flex;
     align-items: center;
+}
+.header-left {
     margin: 2vh;
     margin-top: 3vh;
 }
@@ -38,8 +40,6 @@ a:hover {
     zoom: 120%;
 }
 .header-right {
-    display: flex;
-    align-items: center;
     margin: 3vh;
 }
 .header-right h2 {
@@ -59,25 +59,27 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 210vh;
-    height: 120vh; 
+    width: 100%;
+    height: 100%;
     background: url("../static/x.jpg") top center / cover no-repeat;
     z-index: -1;
 }
 .button-position {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 10px;
 }
 .btn {
     margin: 0.5vh;
-    padding: 2vh 2.5vh;
-    border-radius: 6vh;
+    padding: 1vh 2vh;
+    border-radius: 6px;
     border: none;
     background-color: #00BDFE;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s, text-shadow 0.5s;
-    font-size: 2.5vh;
+    font-size: 1rem;
     font-weight: bold;
 }
 .btn-with-icon {
@@ -105,106 +107,131 @@ body::before {
 }
 .section {
     padding: 2.5vh;
-    margin-top: 37vh;
+    margin-top: 10vh;
     justify-content: center;
     align-items: center;
 }
-.centered-text{
+.centered-text {
     text-align: center;
 }
 .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items:center;
-    height: 51vh;
+    align-items: center;
     width: 100%;
 }
 .box {
-    margin: 3.5vh;
+    margin: 1.5vh;
     border: 0.2vh solid #ccc;
-    border-radius: 4vh;
+    border-radius: 4px;
     background-color: black;
     border-color: white;
     padding: 1vh;
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    height:45vh;
-    width: 60vh;
+    height: auto;
+    max-width: 300px;
     line-height: 1.4;
 }
 .about-me {
-    position: absolute;
-    top: 220vh;
     background-color: black;
-    height: 75vh;
-    width: 210vh;
     padding: 4vh;
-    justify-content: center;
     text-align: center;
-    font-size: 2.6vh;
-  }
-  .mid-content {
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    margin: 2vh;
+    font-size: 1rem;
+}
+.mid-content {
+    margin: 2vh 0;
 }
 .profile-box {
     text-align: center;
-    justify-content: center;
 }
 .python-color {
     color: #306998;
-  }
-
+}
 .web-color {
     background: linear-gradient(to right, #306998 55%, #FFD44B 45%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-  }
-
+}
 .developer-color {
     color: #FFD44B;
-  }
+}
 .info-position {
     display: flex;
+    align-items: center;
     margin: 1vh;
     justify-content: center;
-    text-align: center;
+}
+.info-position img {
+    margin-right: 0.5rem;
 }
 .bottom-down {
-    margin-top: 5vh;
+    margin-top: 2vh;
     text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+    .box {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 1vh;
+    }
+    .header-left, .header-right {
+        margin: 1vh 0;
+    }
+    .header-right h2 {
+        margin-left: 0;
+        margin-top: 1vh;
+    }
+    .button-position {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        margin: 0.5vh 0;
+    }
 }
 
 @media (max-width: 768px) {
     body::before {
-        height: 170vh;
+        background-size: cover;
     }
     .center {
-        margin-top: 30vh;
+        margin-top: 15vh;
     }
     .section {
-        margin-top: 80vh;
-        align-items: center;
-        margin-left: -30px;
-    }
-    .container {
-        margin-top: 25vh;
-        display: flex;
+        margin-top: 30vh;
     }
     .about-me {
-        height: 100vh;
-        margin-top: 105vh;
+        height: auto;
+        margin-top: 70vh;
     }
     .bottom-down {
         margin-top: 1vh;
     }
 }
-@media (max-width: 1024px) {
-    .about-me {
-        height: 80vh;
+
+@media (max-width: 576px) {
+    .btn {
+        font-size: 1rem;
+        padding: 1vh 1.5vh;
+    }
+    .box {
+        max-width: 100%;
+        margin: 1vh 0;
+    }
+    .profile-box img {
+        max-height: 120px;
+        max-width: 120px;
     }
 }
