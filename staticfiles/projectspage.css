@@ -10,10 +10,11 @@ header {
     left: 0;
     height: 8vh;
     width: 100%;
-    position:fixed;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     padding: 0 2vh;
+    z-index: 1000;
 }
 a:visited {
     color: lightgreen;
@@ -32,24 +33,22 @@ a:hover {
     display: flex;
     align-items: center;
     margin: 2vh;
-    margin-top: 3vh;
 }
-.header-left:hover {
-    zoom: 120%;
+.header-left img {
+    border-radius: 20%;
+    height: 40px;
+    width: 80px;
 }
 .header-right {
     display: flex;
     align-items: center;
-    margin: 3vh;
 }
 .header-right h2 {
     margin-left: 2.5vh;
 }
 body {
     color: #F5F7F8;
-    position: absolute;
-    padding-top: 9.5vh;
-    overflow-y: scroll;
+    padding-top: 8vh;
     overflow-x: hidden;
     background-color: #232D3F;
     margin: 0;
@@ -59,28 +58,27 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 210vh;
-    height: 100vh; 
-    background: url("../static/bg.jpg") top center / cover no-repeat;
+    width: 100vw;
+    height: 100vh;
+    background: url("../static/x.jpg") top center / cover no-repeat;
     z-index: -1;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: brightness(70%)
 }
 .button-position {
     display: flex;
-    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vh;
 }
 .btn {
     margin: 0.5vh;
-    padding: 2vh 2.5vh;
+    padding: 1vh 2vh;
     border-radius: 6vh;
     border: none;
     background-color: #00BDFE;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s, text-shadow 0.5s;
-    font-size: 2.5vh;
+    font-size: 2vh;
     font-weight: bold;
 }
 .btn-with-icon {
@@ -89,13 +87,6 @@ body::before {
 }
 .btn-with-icon .btn-img {
     margin-left: 0.5vh;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-.btn-img-img {
-    height: 4vh;
-    width: 4vh
 }
 .btn:hover {
     background-color: #0088aa;
@@ -104,43 +95,42 @@ body::before {
 }
 .center {
     text-align: center;
-    justify-content: center;
-    align-items: center;
     display: flex;
     flex-direction: column;
-    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    margin-top: 8vh;
 }
 .section {
     padding: 2.5vh;
-    margin-top: 25vh;
-    justify-content: center;
+    margin-top: 37vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-}
-.centered-text{
-    text-align: center;
 }
 .container {
     display: flex;
-    justify-content: center;
-    align-items:center;
-    height: 51vh;
-    width: 100%;
-}
-.box {
-    margin: 3.5vh;
-    border: 0.2vh solid #ccc;
-    border-radius: 4vh;
-    background-color: black;
-    border-color: white;
-    padding: 1vh;
-    text-align: center;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height:45vh;
-    width: 60vh;
+    width: 100%;
+    gap: 2vh;
+}
+.box {
+    margin: 1vh;
+    border: 0.2vh solid #ccc;
+    border-radius: 1vh;
+    background-color: black;
+    border-color: white;
+    padding: 2vh;
+    text-align: center;
+    height: auto;
+    width: 90%;
+    max-width: 350px;
     line-height: 1.4;
 }
-.box .btn{
+.box .btn {
     background-color: #00ff26;
 }
 .box1 {
@@ -152,7 +142,7 @@ body::before {
 }
 .box2 {
     background: url("../static/meet.gif") top center / cover no-repeat;
-    filter: brightness(90%)
+    filter: brightness(90%);
 }
 .box2 {
     color: #00ff26;
@@ -167,7 +157,7 @@ body::before {
     background: url("../static/alpha.gif") top center / cover no-repeat;
 }
 .box6 {
-    background: url("../static/converter.gif")  top / cover no-repeat;
+    background: url("../static/converter.gif") top / cover no-repeat;
 }
 .box7 {
     background: url("../static/numeric.gif") top center / cover no-repeat;
@@ -180,91 +170,97 @@ body::before {
     justify-content: center;
     align-items: center;
 }
+
 .section3 {
     padding: 2.5vh;
     justify-content: center;
     align-items: center;
 }
 .about-me {
-    position: absolute;
-    top: 280vh;
     background-color: black;
-    height: 75vh;
-    width: 210vh;
     padding: 4vh;
-    justify-content: center;
     text-align: center;
-    font-size: 2.6vh;
-  }
-.mid-content {
-    justify-content: center;
-    text-align: center;
+    font-size: 1.6em;
     width: 100%;
-    margin: 2vh;
+    box-sizing: border-box;
 }
 .profile-box {
     text-align: center;
+    margin-top: 2vh;
+}
+.profile-box img {
+    border-radius: 50%;
+    max-height: 150px;
+    max-width: 150px;
+}
+.info-position {
+    display: flex;
+    align-items: center;
     justify-content: center;
+    margin: 1vh;
+}
+.info-position img {
+    border-radius: 20%;
+    max-height: 30px;
+    max-width: 30px;
+    margin-right: 5px;
+}
+.link-inbox {
+    color: #7fffd4;
+    text-decoration: none;
+    margin: 0 5px;
+}
+.link-inbox:hover {
+    color: #008080;
+}
+.bottom-down {
+    margin-top: 2vh;
 }
 .python-color {
-    color: #ffffff;
-  }
-
+    color: #306998;
+}
 .web-color {
-    background: linear-gradient(to right, #ffffff 50%, #50f73a 50%);
+    background: linear-gradient(to right, #306998 55%, #FFD44B 45%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-  }
-
+}
 .developer-color {
-    color: #50f73a;
-  }
-.info-position {
-    display: flex;
-    margin: 1vh;
-    justify-content: center;
-    text-align: center;
-}
-.bottom-down {
-    margin-top: 5vh;
-    text-align: center;
-}
-
-@media (max-width: 320px) {
-    .section {
-        margin-left: -6vh;
-    }
-    .section2 {
-        margin-left: -5vh;
-    }
+    color: #FFD44B;
 }
 
 @media (max-width: 768px) {
     body::before {
-        height: 130vh;
+        height: 200vh;
     }
     .center {
-        margin-top: 15vh;
+        margin-top: 20vh;
     }
     .section {
-        margin-top: 55vh;
-        align-items: center;
+        margin-top: 60vh;
+    }
+    .about-me {
+        height: auto;
+        margin-top: 90vh;
     }
     .container {
-        margin-top: 10vh;
-        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .about-me {
-        height: 100vh;
-        margin-top: 105vh;
-    }
-    .bottom-down {
-        margin-top: 1vh;
+    .box {
+        width: 95%;
     }
 }
+
 @media (max-width: 1024px) {
+    .section {
+        margin-top: 10vh;
+    }
     .about-me {
-        height: 80vh;
+        height: auto;
+        margin-top: 10vh;
+    }
+    .container {
+        flex-direction: column;
     }
 }
