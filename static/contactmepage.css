@@ -1,66 +1,78 @@
+/* Base CSS - this is kept as it is */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 header {
     background-color: rgba(35, 45, 163, 0.15);
     color: #7fffd4;
-    top: 0;
-    left: 0;
     height: 8vh;
     width: 100%;
-    position:fixed;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     padding: 0 2vh;
 }
+
 a:visited {
     color: lightgreen;
 }
+
 a:active {
     text-decoration: none;
 }
+
 a:link {
     color: #7fffd4;
     text-decoration: none;
 }
+
 a:hover {
     color: #008080;
 }
+
 .header-left {
     display: flex;
     align-items: center;
-    margin: 2vh;
-    margin-top: 3vh;
 }
-.header-left:hover {
-    zoom: 120%;
+
+.header-left img {
+    border-radius: 20%;
+    height: 40px;
+    width: 80px;
 }
+
 .header-right {
     display: flex;
     align-items: center;
-    margin: 3vh;
 }
+
 .header-right h2 {
     margin-left: 2.5vh;
 }
+
 body {
     color: #F5F7F8;
-    position: absolute;
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: #fff;
     margin: 0;
 }
+
 body::before {
     content: '';
     position: absolute;
-    width: 210vh;
-    height: 120vh; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 150vh;
     background: url("../static/full-sunny.jpg") top center / cover no-repeat;
     z-index: -1;
 }
+
 .btn {
     margin: 0.5vh;
     padding: 2vh 2.5vh;
@@ -73,114 +85,161 @@ body::before {
     font-size: 2.5vh;
     font-weight: bold;
 }
+
 .middle {
     position: relative;
-    margin-top: 50vh;
-    margin-left: 100vh;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding-top: 8vh; /* Adjusted to ensure proper spacing */
     text-align: center;
-    justify-content: center;
-    align-items: center;
 }
+
 .feedback-box {
-    padding: 10vh;
+    padding: 5vh;
     border-radius: 1vh;
-    max-width: 200vh;
+    max-width: 90vw; /* Updated to be more responsive */
     margin: 0 auto;
 }
+
 .input-group {
-    flex-direction: column;
+    margin-bottom: 2vh;
 }
+
 .input-group label {
     font-weight: bold;
 }
+
 .input-group input {
     padding: 1.2vh;
     border-radius: 0.8vh;
     border: 0.4vh solid #ccc;
-    width: 30vh;
+    width: 100%;
+    max-width: 30vw;
 }
+
 #message {
     resize: vertical;
     height: 30vh;
 }
+
 .circle {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .thank-you-message p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  margin: 0;
-  font-size: 22px;
-  color: #7BD9F6;
-  font-style: Arial, sans-serif;
-  font-weight: bold;
-}        
+    text-align: center;
+    font-size: 22px;
+    color: #7BD9F6;
+    font-style: Arial, sans-serif;
+    font-weight: bold;
+}
+
 .about-me {
-    position: absolute;
-    top: 120vh;
     background-color: black;
-    height: 74vh;
-    width: 210vh;
     padding: 4vh;
-    justify-content: center;
     text-align: center;
-    font-size: 2.6vh;
-}
-.mid-content {
-    justify-content: center;
-    text-align: center;
+    font-size: 1.6em;
     width: 100%;
-    margin: 2vh;
+    color: #F5F7F8; /* Ensured text color contrast */
 }
+
 .profile-box {
     text-align: center;
-    justify-content: center;
+    margin-top: 2vh;
 }
+
+.profile-box img {
+    border-radius: 50%;
+    max-height: 150px;
+    max-width: 150px;
+}
+
 .info-position {
     display: flex;
-    margin: 1vh;
+    align-items: center;
     justify-content: center;
-    text-align: center;
+    margin: 1vh;
 }
+
+.info-position img {
+    border-radius: 20%;
+    max-height: 30px;
+    max-width: 30px;
+    margin-right: 5px;
+}
+
+.link-inbox {
+    color: #7fffd4;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.link-inbox:hover {
+    color: #008080;
+}
+
 .bottom-down {
-    margin-top: 5vh;
-    text-align: center;
+    margin-top: 2vh;
 }
 
 @media (max-width: 320px) {
-    body::before {
-        margin-top: 0vh;
+    .body {
+        height: auto;
+        width: auto;
+    }
+    .middle {
+        padding-top: 10vh; /* Adjusted for small screens */
+    }
+
+    .feedback-box {
+        padding: 5vh;
+        max-width: 100%;
+    }
+
+    #message {
+        height: 20vh;
+    }
+
+    .about-me {
+        font-size: 1.4em;
+    }
+
+    .bottom-down {
+        margin-top: 4vh;
     }
 }
 
 @media (max-width: 768px) {
-    body::before {
-        height: 160vh;
-    }
     .middle {
-        margin-top: 80vh;;
+        padding-top: 12vh;
     }
+
+    .feedback-box {
+        padding: 7vh;
+        max-width: 100%;
+    }
+
+    #message {
+        height: 25vh;
+    }
+
     .about-me {
-        height: 100vh;
-        margin-top: 40vh;
+        font-size: 1.5em;
     }
+
     .bottom-down {
-        margin-top: 6vh;
+        margin-top: 5vh;
     }
 }
+
 @media (max-width: 1024px) {
     .about-me {
-        height: 80vh;
+        font-size: 1.4em;
     }
 }
