@@ -14,6 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 0 2vh;
+    z-index: 1000;
 }
 a:visited {
     color: lightgreen;
@@ -28,28 +29,26 @@ a:link {
 a:hover {
     color: #008080;
 }
-.header-left, .header-right {
+.header-left {
     display: flex;
     align-items: center;
-}
-.header-left {
     margin: 2vh;
-    margin-top: 3vh;
 }
-.header-left:hover {
-    zoom: 120%;
+.header-left img {
+    border-radius: 20%;
+    height: 40px;
+    width: 80px;
 }
 .header-right {
-    margin: 3vh;
+    display: flex;
+    align-items: center;
 }
 .header-right h2 {
     margin-left: 2.5vh;
 }
 body {
     color: #F5F7F8;
-    position: absolute;
-    padding-top: 9.5vh;
-    overflow-y: scroll;
+    padding-top: 8vh;
     overflow-x: hidden;
     background-color: #232D3F;
     margin: 0;
@@ -59,27 +58,27 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: url("../static/x.jpg") top center / cover no-repeat;
     z-index: -1;
 }
 .button-position {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vh;
 }
 .btn {
     margin: 0.5vh;
     padding: 1vh 2vh;
-    border-radius: 6px;
+    border-radius: 6vh;
     border: none;
     background-color: #00BDFE;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s, text-shadow 0.5s;
-    font-size: 1rem;
+    font-size: 1vh;
     font-weight: bold;
 }
 .btn-with-icon {
@@ -88,9 +87,6 @@ body::before {
 }
 .btn-with-icon .btn-img {
     margin-left: 0.5vh;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 .btn:hover {
     background-color: #0088aa;
@@ -99,20 +95,19 @@ body::before {
 }
 .center {
     text-align: center;
-    justify-content: center;
-    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 75vh;
+    margin-top: 8vh;
 }
 .section {
     padding: 2.5vh;
-    margin-top: 10vh;
-    justify-content: center;
+    margin-top: 37vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-}
-.centered-text {
-    text-align: center;
 }
 .container {
     display: flex;
@@ -120,30 +115,60 @@ body::before {
     justify-content: center;
     align-items: center;
     width: 100%;
+    gap: 2vh;
 }
 .box {
-    margin: 1.5vh;
+    margin: 1vh;
     border: 0.2vh solid #ccc;
-    border-radius: 4px;
+    border-radius: 1vh;
     background-color: black;
     border-color: white;
-    padding: 1vh;
+    padding: 2vh;
     text-align: center;
     height: auto;
-    max-width: 300px;
+    width: 90%;
+    max-width: 350px;
     line-height: 1.4;
 }
 .about-me {
     background-color: black;
     padding: 4vh;
     text-align: center;
-    font-size: 1rem;
-}
-.mid-content {
-    margin: 2vh 0;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
 }
 .profile-box {
     text-align: center;
+    margin-top: 2vh;
+}
+.profile-box img {
+    border-radius: 50%;
+    max-height: 150px;
+    max-width: 150px;
+}
+.info-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vh;
+}
+.info-position img {
+    border-radius: 20%;
+    max-height: 30px;
+    max-width: 30px;
+    margin-right: 5px;
+}
+.link-inbox {
+    color: #7fffd4;
+    text-decoration: none;
+    margin: 0 5px;
+}
+.link-inbox:hover {
+    color: #008080;
+}
+.bottom-down {
+    margin-top: 2vh;
 }
 .python-color {
     color: #306998;
@@ -157,81 +182,39 @@ body::before {
 .developer-color {
     color: #FFD44B;
 }
-.info-position {
-    display: flex;
-    align-items: center;
-    margin: 1vh;
-    justify-content: center;
-}
-.info-position img {
-    margin-right: 0.5rem;
-}
-.bottom-down {
-    margin-top: 2vh;
-    text-align: center;
-}
-
-@media (max-width: 1200px) {
-    .container {
-        flex-direction: column;
-    }
-    .box {
-        max-width: 90%;
-    }
-}
-
-@media (max-width: 992px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 1vh;
-    }
-    .header-left, .header-right {
-        margin: 1vh 0;
-    }
-    .header-right h2 {
-        margin-left: 0;
-        margin-top: 1vh;
-    }
-    .button-position {
-        flex-direction: column;
-    }
-    .btn {
-        width: 100%;
-        margin: 0.5vh 0;
-    }
-}
 
 @media (max-width: 768px) {
     body::before {
-        background-size: cover;
+        height: 200vh;
     }
     .center {
-        margin-top: 15vh;
+        margin-top: 20vh;
     }
     .section {
-        margin-top: 30vh;
+        margin-top: 60vh;
     }
     .about-me {
         height: auto;
-        margin-top: 70vh;
+        margin-top: 90vh;
     }
-    .bottom-down {
-        margin-top: 1vh;
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .box {
+        width: 95%;
     }
 }
 
-@media (max-width: 576px) {
-    .btn {
-        font-size: 1rem;
-        padding: 1vh 1.5vh;
+@media (max-width: 1024px) {
+    .section {
+        margin-top: 10vh;
     }
-    .box {
-        max-width: 100%;
-        margin: 1vh 0;
+    .about-me {
+        height: auto;
+        margin-top: 10vh;
     }
-    .profile-box img {
-        max-height: 120px;
-        max-width: 120px;
+    .container {
+        flex-direction: column;
     }
 }
